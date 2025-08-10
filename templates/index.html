@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image List</title>
+</head>
+
+<body>
+    <h1>Uploaded Images</h1>
+    <a href="/upload">Upload New Image</a>
+    <ul>
+        {% for img in images %}
+        <li>
+            <img src="{{ url_for('static', filename='uploads/' + img[1]) }}" width="64">
+            Label: {{ img[2] }}
+            <a href="/update/{{ img[0] }}">Update</a>
+            <a href="/delete/{{ img[0] }}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
